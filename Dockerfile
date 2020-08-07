@@ -15,4 +15,4 @@ RUN ["mvn", "clean", "install"]
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "target/helloworld-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-javaagent:/data/springboot-helloworld/elastic-apm-agent-1.18.0.RC1 -Delastic.apm.service_name=springboot -Delastic.apm.application_packages=org.example,org.another.example -Delastic.apm.server_urls=http://192.168.10.145:8200 -jar", "target/helloworld-0.0.1-SNAPSHOT.jar"]
